@@ -66,7 +66,7 @@ Exemplo :
 }
 ```
 
-- POST http://ec2-52-203-6-72.compute-1.amazonaws.com:8000/products/list
+- GET http://ec2-52-203-6-72.compute-1.amazonaws.com:8000/products/list
 
 - DELETE http://ec2-52-203-6-72.compute-1.amazonaws.com:8000/products/{_id}/delete
 
