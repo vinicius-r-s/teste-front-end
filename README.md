@@ -1,5 +1,9 @@
 # Teste para candidatos à vaga de desenvolvedor Front-end
 
+```
+Todos os interessados que fizerem pull request e enviarem o curriculo para felipe.alves@fbmobile.com.br com assunto NOME DA VAGA + NOME DA EMPRESA receberão um feedback.
+```
+
 ## Instale no seu sistema operacional
 
     Node.js e Angular CLI
@@ -8,7 +12,7 @@
 
 Utilizar o comando 'ng new'
 
-O teste deve conter:
+O teste deve conter um CRUD (Criar, Ler, Atualizar e Excluir):
 
 1. Um formulário para cadastro de produto com os campos:
 
