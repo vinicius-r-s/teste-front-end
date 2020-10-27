@@ -1,8 +1,8 @@
 # Teste para candidatos à vaga de desenvolvedor Front-end
 
-```
+`
 Todos os interessados que fizerem pull request e enviarem o curriculo para felipe.alves@fbmobile.com.br com assunto NOME DA VAGA + NOME DA EMPRESA receberão um feedback.
-```
+`
 
 ## Instale no seu sistema operacional
 
