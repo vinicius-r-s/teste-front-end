@@ -89,7 +89,7 @@ export class ProductDrawerComponent implements OnInit {
     this.isOpen = false;
     this.productForm.reset();
     this.formGroupDirective.resetForm();
-    this.feedBackIsOpen.emit(this.isOpen);
+    this.feedBackIsOpen.emit({ drawer: this.isOpen, reload: false });
   }
 
   productSubmit(): void {
@@ -116,13 +116,19 @@ export class ProductDrawerComponent implements OnInit {
           (res) => {
             if (res.status == 200 || res.status == 201) {
               this.showSnackBar('Cadastro feito com sucesso');
-              this.closeDrawer();
+              this.isOpen = false;
+              this.productForm.reset();
+              this.formGroupDirective.resetForm();
+              this.feedBackIsOpen.emit({ drawer: this.isOpen, reload: true });
             }
           },
           (err: HttpErrorResponse) => {
             if (err.status == 200 || err.status == 201) {
               this.showSnackBar('Cadastro feito com sucesso');
-              this.closeDrawer();
+              this.isOpen = false;
+              this.productForm.reset();
+              this.formGroupDirective.resetForm();
+              this.feedBackIsOpen.emit({ drawer: this.isOpen, reload: true });
             }
           })
       }

@@ -1,4 +1,4 @@
-.container{
+.ct-container{
     min-width: 350px;
 }
 
@@ -12,14 +12,8 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        
-        h1{
-            margin-top: 24px;
-            margin-bottom: 36px;
-            font-size: 24px;
-            color: var(--ct-color-title)
-        }
-        
+        margin: 24px 0;
+
         button{
             height: 48px;
             background: var(--ct-color-primary);
@@ -28,5 +22,19 @@
             color: var(--ct-color-white);
         }
 
+        .ct-title{
+            display: flex;
+            align-items: center;
+            h1{
+                font-size: 24px;
+                color: var(--ct-color-title)
+            }
+            .refresh{
+                margin-left: 4px;
+                height: 36px;
+                background: var(--ct-color-background);
+                color: var(--ct-color-text);
+            }
+        }
     }
 }

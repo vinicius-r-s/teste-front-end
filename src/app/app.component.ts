@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 
+interface Drawer {
+  drawer: boolean,
+  reload: boolean
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,6 +12,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   showProductDrawer = false;
+  loading = false;
 
   toggleDrawer() {
     if (this.showProductDrawer) {
@@ -17,7 +23,21 @@ export class AppComponent {
     }
   }
 
-  receiverFeedBack(feedBackIsOpen) {
-    this.showProductDrawer = feedBackIsOpen;
+  reloadTable() {
+    if (this.loading) {
+      this.loading = false;
+    }
+    else {
+      this.loading = true;
+    }
+  }
+
+  receiverFeedBack(feedBackIsOpen: Drawer) {
+    this.showProductDrawer = feedBackIsOpen.drawer;
+    this.loading = feedBackIsOpen.reload;
+  }
+
+  receiverLoading(loading: boolean) {
+    this.loading = loading;
   }
 }

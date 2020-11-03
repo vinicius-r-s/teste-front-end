@@ -1,15 +1,21 @@
 <app-product-drawer type="create" [isOpen]="showProductDrawer" (feedBackIsOpen)="receiverFeedBack($event)">
 </app-product-drawer>
-<div class="container">
+<div class="ct-container">
     <app-header></app-header>
     <div class="ct-products">
         <div class="ct-header-table">
-            <h1>Produtos</h1>
+            <div class="ct-title">
+                <h1>Produtos</h1>
+                <button mat-button class="refresh" (click)="reloadTable()">
+                    <mat-icon>refresh</mat-icon>
+                </button>
+            </div>
             <button mat-button (click)="toggleDrawer()">
                 <mat-icon>add_box</mat-icon>
                 Adicionar Produto
             </button>
         </div>
-        <app-product-table class=" ct-table"></app-product-table>
+        <app-product-table class="ct-table" [loading]="loading" (feedBackReload)="receiverLoading($event)">
+        </app-product-table>
     </div>
 </div>

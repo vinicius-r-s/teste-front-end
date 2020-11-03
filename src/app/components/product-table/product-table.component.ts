@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild, Output, EventEmitter, TemplateRef } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild, Output, EventEmitter, TemplateRef, Input, SimpleChanges } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
@@ -16,11 +16,16 @@ import { ngxLoadingAnimationTypes } from 'ngx-loading';
   styleUrls: ['./product-table.component.scss']
 })
 export class ProductTableComponent implements AfterViewInit, OnInit {
+  @Input()
+  loading: boolean = true;
+  @Output()
+  feedBackReload = new EventEmitter();
+
   // @ViewChild(MatPaginator) paginator: MatPaginator;
   // @ViewChild(MatSort) sort: MatSort;
   // @ViewChild(MatTable) table: MatTable<Product>;
   // dataSource: ProductTableDataSource;
-  public loading: boolean = true;
+
   public ngxLoadingAnimationTypes = ngxLoadingAnimationTypes;
   public primaryColour = '#FF7702';
   public loadingTemplate: TemplateRef<any>;
@@ -40,6 +45,12 @@ export class ProductTableComponent implements AfterViewInit, OnInit {
     // this.dataSource.sort = this.sort;
     // this.dataSource.paginator = this.paginator;
     // this.table.dataSource = this.dataSource;
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.loading) {
+      this.getProducts()
+    }
   }
 
   toggleDrawerWithProduct(product: Product) {
@@ -66,6 +77,7 @@ export class ProductTableComponent implements AfterViewInit, OnInit {
   async getProducts() {
     await this.apiService.getProducts().subscribe((products) => {
       this.loading = false
+      this.feedBackReload.emit(this.loading);
       this.products = products;
     })
   }
@@ -75,7 +87,7 @@ export class ProductTableComponent implements AfterViewInit, OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.loading = true;
-      if (result == true) {
+      if (result) {
         this.apiService.deleteProduct(id).subscribe(
           (res) => {
             if (res.status == 200 || res.status == 201) {
@@ -92,7 +104,9 @@ export class ProductTableComponent implements AfterViewInit, OnInit {
             }
           });
       }
-      this.loading = false;
+      else {
+        this.loading = false;
+      }
     });
   }
 }
