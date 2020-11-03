@@ -16,4 +16,8 @@ export class AppComponent {
       this.showProductDrawer = true;
     }
   }
+
+  receiverFeedBack(feedBackIsOpen) {
+    this.showProductDrawer = feedBackIsOpen;
+  }
 }

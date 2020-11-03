@@ -42,16 +42,6 @@ export class ProductTableComponent implements AfterViewInit, OnInit {
     // this.table.dataSource = this.dataSource;
   }
 
-  toggleDrawer() {
-    if (this.showProductDrawer) {
-      this.showProductDrawer = false;
-    }
-    else {
-      this.showProductDrawer = true;
-    }
-    console.log("EDIT NORMAL", this.showProductDrawer);
-  }
-
   toggleDrawerWithProduct(product: Product) {
     if (this.showProductDrawer) {
       this.showProductDrawer = false;
@@ -60,6 +50,10 @@ export class ProductTableComponent implements AfterViewInit, OnInit {
       this.showProductDrawer = true;
     }
     this.selectedProduct = product;
+  }
+
+  receiverFeedBack(feedBackIsOpen) {
+    this.showProductDrawer = feedBackIsOpen;
   }
 
   showSnackBar(message: string) {
@@ -80,21 +74,25 @@ export class ProductTableComponent implements AfterViewInit, OnInit {
     const dialogRef = this.dialog.open(DeleteDialogComponent);
 
     dialogRef.afterClosed().subscribe(result => {
+      this.loading = true;
       if (result == true) {
         this.apiService.deleteProduct(id).subscribe(
           (res) => {
             if (res.status == 200 || res.status == 201) {
+              this.loading = false;
               this.showSnackBar('Excluido com sucesso');
               this.getProducts();
             }
           },
           (err) => {
             if (err.status == 200 || err.status == 201) {
+              this.loading = false;
               this.showSnackBar('Excluido com sucesso');
               this.getProducts();
             }
           });
       }
+      this.loading = false;
     });
   }
 }

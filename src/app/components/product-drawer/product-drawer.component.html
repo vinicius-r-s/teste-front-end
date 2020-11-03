@@ -50,7 +50,7 @@
             <textarea matInput placeholder="Descreva seu produto" formControlName="descricao"
                 inputmode="text"></textarea>
         </mat-form-field>
-        <button mat-button (click)="productSubmit()"
-            [ngClass]="{'hide-elements': isOpen == false, 'show-elements': isOpen == true }">Salvar</button>
     </form>
+    <button mat-button (click)="productSubmit()" class="form-button"
+        [ngClass]="{'hide-elements': isOpen == false, 'show-elements': isOpen == true }">Salvar</button>
 </div>

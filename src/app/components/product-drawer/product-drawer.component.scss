@@ -50,6 +50,10 @@
         align-items: center;
     }
 
+    .form-button{
+        margin: 0 48px;
+    }
+
     @media (min-width: 1440px){
         width: calc(480px + ((100vw - 1440px)/2));
     }
