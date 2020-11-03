@@ -8,7 +8,7 @@ import { Drawer } from './core/models/drawer.interface';
 })
 export class AppComponent {
   showProductDrawer = false;
-  loading = false;
+  loading = true;
 
   toggleDrawer() {
     if (this.showProductDrawer) {
