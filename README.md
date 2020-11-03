@@ -1,84 +1,25 @@
-# Teste para candidatos à vaga de desenvolvedor Front-end
+<h1 align="center">
+  <img src="src/assets/logo.svg" alt="CRUDTest" width="300">
+</h1>
 
-`
-Todos os interessados que fizerem pull request e enviarem o curriculo para felipe.alves@fbmobile.com.br com assunto NOME DA VAGA + NOME DA EMPRESA receberão um feedback.
-`
+<h4 align="center" style="margin-bottom: 48px;">Teste para candidatos à vaga de desenvolvedor Front-end</h4>
 
-## Instale no seu sistema operacional
+## :computer: Como Usar
+Para rodar essa aplicação, você precisará do Git e do Node.js instalado no seu computador. **Siga as instruções abaixo:**
 
-    Node.js e Angular CLI
+```bash
+# Clone esse repositório
+$ git clone https://github.com/vinicius-r-s/teste-front-end.git
 
-## Iniciando
+# Abra a pasta do repositório
+$ cd teste-front-end
 
-Utilizar o comando 'ng new'
+# Instale as dependências
+$ npm i
 
-O teste deve conter um CRUD (Criar, Ler, Atualizar e Excluir):
+# Rodar o app
+$ npm start
 
-1. Um formulário para cadastro de produto com os campos:
-
-  - Nome (obrigatório)
-  - Marca (obrigatório)
-  - Modelo (obrigatório)
-  - Preço (obrigatório)
-  - Link da Foto do Produto
-  - Descrição
-
-2. Validar os campos:
-
-  - Preço
-
-3. Uma tabela para listar os produtos cadastrados exibindo as colunas de Nome, Marca, Modelo e Preço.
-
-4. Na tabela adicionar botão para excluir o produto.
-
-5. Na tabela adicionar botão para editar o produto que leve para ser editado no formulário.
-
-
-## Apis
-
-- POST http://ec2-52-203-6-72.compute-1.amazonaws.com:8000/products/create
-- Exemplo :
-
-  ```
-  {
-    "nome":"Iphone",
-    "marca":"Apple",
-    "modelo":"11 pro max",
-    "preco":100000,
-    "link_foto":"https://teste.jpg",
-    "descricao":"Melhor celular de 2020",
-  }
-  ```
-
-- PUT http://ec2-52-203-6-72.compute-1.amazonaws.com:8000/products/{_id}/update
-
-Exemplo :
-
+# Build minificado
+$ npm build
 ```
-{
-  "_id":"5f9849b27f2d087823575d1c",
-  "nome":"Iphone",
-  "marca":"Apple",
-  "modelo":"11 pro max",
-  "preco":100000,
-  "link_foto":"https://teste.jpg",
-  "descricao":"Melhor celular de 2020",
-}
-```
-
-- GET http://ec2-52-203-6-72.compute-1.amazonaws.com:8000/products/list
-
-- DELETE http://ec2-52-203-6-72.compute-1.amazonaws.com:8000/products/{_id}/delete
-
-### Você pode:
-
-- Utilizar o formato de folha de estilo que desejar.
-
-### Ganhe pontos extras por:
-
-- Desenvolver HTML semântico;
-- Validar os inputs do seu formulário antes de habilitar o botão de envio;
-- Gerar build minificado (produção).
-- Utilizar teste unitário ou teste end-to-end.
-
-**Boa sorte!**
