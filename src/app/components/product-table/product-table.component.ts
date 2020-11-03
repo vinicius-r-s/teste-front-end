@@ -9,6 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 import { MatSnackBarConfig, MatSnackBar } from '@angular/material/snack-bar';
 import { ngxLoadingAnimationTypes } from 'ngx-loading';
+import { Drawer } from 'src/app/core/models/drawer.interface';
 
 @Component({
   selector: 'app-product-table',
@@ -63,8 +64,8 @@ export class ProductTableComponent implements AfterViewInit, OnInit {
     this.selectedProduct = product;
   }
 
-  receiverFeedBack(feedBackIsOpen) {
-    this.showProductDrawer = feedBackIsOpen;
+  receiverFeedBack(feedBackIsOpen: Drawer) {
+    this.showProductDrawer = feedBackIsOpen.drawer;
   }
 
   showSnackBar(message: string) {

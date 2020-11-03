@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
-
-interface Drawer {
-  drawer: boolean,
-  reload: boolean
-}
+import { Drawer } from './core/models/drawer.interface';
 
 @Component({
   selector: 'app-root',
