@@ -28,7 +28,7 @@ export class ProductTableComponent implements AfterViewInit, OnInit {
   public selectedProduct: Product;
 
   public displayedColumns = ['nome', 'marca', 'modelo', 'preco', 'action'];
-  public showEditDrawer = false;
+  public showProductDrawer = false;
 
   constructor(private apiService: ApiService, public dialog: MatDialog, private _snackBar: MatSnackBar) { }
 
@@ -40,6 +40,26 @@ export class ProductTableComponent implements AfterViewInit, OnInit {
     // this.dataSource.sort = this.sort;
     // this.dataSource.paginator = this.paginator;
     // this.table.dataSource = this.dataSource;
+  }
+
+  toggleDrawer() {
+    if (this.showProductDrawer) {
+      this.showProductDrawer = false;
+    }
+    else {
+      this.showProductDrawer = true;
+    }
+    console.log("EDIT NORMAL", this.showProductDrawer);
+  }
+
+  toggleDrawerWithProduct(product: Product) {
+    if (this.showProductDrawer) {
+      this.showProductDrawer = false;
+    }
+    else {
+      this.showProductDrawer = true;
+    }
+    this.selectedProduct = product;
   }
 
   showSnackBar(message: string) {

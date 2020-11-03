@@ -1,0 +1,56 @@
+<div class=" container" [ngClass]="{'hide-drawer': isOpen == false, 'show-drawer': isOpen == true }">
+    <div class="header" [ngClass]="{'hide-elements': isOpen == false, 'show-elements': isOpen == true }">
+        <h1>{{title}}</h1>
+        <button mat-icon-button class="ct-btn" (click)="closeDrawer()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <form [formGroup]="productForm" (ngSubmit)="productSubmit()"
+        [ngClass]="{'hide-elements': isOpen == false, 'show-elements': isOpen == true }">
+        <mat-form-field appearance="outline">
+            <mat-label>Nome</mat-label>
+            <input matInput placeholder="Digite o nome do produto" formControlName="nome" inputmode="text" required>
+            <mat-error
+                *ngIf="!productForm.controls.nome.valid && (productForm.controls.nome.dirty || productForm.controls.nome.touched || !submitAttempt)">
+                Digite o nome do produto
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Marca</mat-label>
+            <input matInput placeholder="Digite a marca do produto" formControlName="marca" inputmode="text" required>
+            <mat-error
+                *ngIf="!productForm.controls.marca.valid && (productForm.controls.marca.dirty || productForm.controls.marca.touched || !submitAttempt)">
+                Digite a marca do produto
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Modelo</mat-label>
+            <input matInput placeholder="Digite o modelo do produto" formControlName="modelo" inputmode="text" required>
+            <mat-error
+                *ngIf="!productForm.controls.modelo.valid && (productForm.controls.modelo.dirty || productForm.controls.modelo.touched || !submitAttempt)">
+                Digite o modelo do produto
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Preço</mat-label>
+            <input matInput currencyMask formControlName="preco"
+                [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' ,align: 'left'}"
+                placeholder="Digite o preço do produto" inputmode="number" required>
+            <mat-error
+                *ngIf="!productForm.controls.preco.valid && (productForm.controls.preco.dirty || productForm.controls.preco.touched || !submitAttempt)">
+                Digite o preço do produto
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>URL da Foto</mat-label>
+            <input matInput placeholder="Cole aqui a url da foto do produto" formControlName="foto" inputmode="number">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Descrição</mat-label>
+            <textarea matInput placeholder="Descreva seu produto" formControlName="descricao"
+                inputmode="text"></textarea>
+        </mat-form-field>
+        <button mat-button (click)="productSubmit()"
+            [ngClass]="{'hide-elements': isOpen == false, 'show-elements': isOpen == true }">Salvar</button>
+    </form>
+</div>

@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'crud-test';
+  showProductDrawer = false;
+
+  toggleDrawer() {
+    if (this.showProductDrawer) {
+      this.showProductDrawer = false;
+    }
+    else {
+      this.showProductDrawer = true;
+    }
+  }
 }

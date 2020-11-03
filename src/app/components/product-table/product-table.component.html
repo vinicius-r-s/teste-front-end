@@ -1,3 +1,6 @@
+<app-product-drawer type="edit" [isOpen]="showProductDrawer" (feedBackIsOpen)="toggleDrawer()"
+  [product]="selectedProduct">
+</app-product-drawer>
 <div class="loading">
   <ngx-loading [show]="loading"
     [config]="{animationType: ngxLoadingAnimationTypes.circleSwish, primaryColour: primaryColour, backdropBorderRadius: '3px'}"
@@ -10,7 +13,7 @@
     <ng-container matColumnDef="nome">
       <th mat-header-cell *matHeaderCellDef>NOME</th>
       <td mat-cell *matCellDef="let row">
-        <img src="{{row.link_foto || 'assets/img/unknown-product.svg'}}" alt={{row.nome}}>
+        <img src="{{row.link_foto || 'assets/unknown-product.svg'}}" alt={{row.nome}}>
         {{row.nome}}
       </td>
     </ng-container>
@@ -38,7 +41,7 @@
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let row" class="align-right">
         <a routerLink="">
-          <button mat-icon-button class="ct-action-button edit">
+          <button mat-icon-button class="ct-action-button edit" (click)="toggleDrawerWithProduct(row)">
             <mat-icon>edit</mat-icon>
           </button>
         </a>

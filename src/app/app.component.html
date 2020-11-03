@@ -1,13 +1,15 @@
+<app-product-drawer type="create" [isOpen]="showProductDrawer" (feedBackIsOpen)="toggleDrawer()">
+</app-product-drawer>
 <div class="container">
     <app-header></app-header>
     <div class="ct-products">
         <div class="ct-header-table">
             <h1>Produtos</h1>
-            <button mat-button>
+            <button mat-button (click)="toggleDrawer()">
                 <mat-icon>add_box</mat-icon>
                 Adicionar Produto
             </button>
         </div>
-        <app-product-table class="ct-table"></app-product-table>
+        <app-product-table class=" ct-table"></app-product-table>
     </div>
 </div>
