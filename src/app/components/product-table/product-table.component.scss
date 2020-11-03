@@ -1,0 +1,91 @@
+.container{
+  display: flex;
+  padding: 36px;
+  background: var(--ct-color-white);
+  border-radius: 24px;
+  font-size: 16px;
+  overflow-x: auto;
+  
+
+  tr.mat-header-row {
+    height: 36px;
+    th{
+      padding:0;
+    }
+  }
+
+  tr.mat-row {
+    height: 56px;
+    td{
+      padding:0;
+      border-bottom-style: none;
+    }
+  }
+  
+  td{
+    color: var(--ct-color-text);
+    img{
+      height: 24px;
+      width: 24px;
+      margin-right: 24px;
+    }
+  }
+
+  .align-right{
+    display: flex;
+    height: 100%;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+
+.container::-webkit-scrollbar
+{
+  height: 10px;
+  background-color:transparent;
+}
+
+.container::-webkit-scrollbar-track
+{
+	background-color: transparent;
+}
+
+.container::-webkit-scrollbar-thumb
+{
+  border-radius: 8px;
+  background-color: var(--ct-color-border-btn);
+  -webkit-box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05);
+}
+
+.ct-table {
+  width: 100%;
+  min-width: 650px;
+}
+
+.ct-action-button{
+  background: var(--ct-color-white);
+  border: 1px solid var(--ct-color-border-btn);
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  margin-right: 16px;
+  color: var(--ct-color-text);
+}
+
+.edit:focus{
+  color: orange;
+  transition: color 0.2s ease-in;
+}
+
+.delete:focus{
+  color: red;
+  transition: color 0.2s ease-in;
+}
+
+::ng-deep snack-bar-container.custom-class {
+  background: var(--ct-color-primary);
+}
+
+::ng-deep .custom-class .mat-simple-snackbar .mat-simple-snackbar-action {
+  color: var(--ct-color-white);
+}

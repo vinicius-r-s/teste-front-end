@@ -1,0 +1,32 @@
+.container{
+    min-width: 350px;
+}
+
+.ct-products{
+    padding: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+    
+    .ct-header-table{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        h1{
+            margin-top: 24px;
+            margin-bottom: 36px;
+            font-size: 24px;
+            color: var(--ct-color-title)
+        }
+        
+        button{
+            height: 48px;
+            background: #FF7702;
+            border-radius: 8px;
+            border:none;
+            color: var(--ct-color-white);
+        }
+
+    }
+}

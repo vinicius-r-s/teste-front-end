@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>
+    Confirmação
+</h2>
+<div mat-dialog-content>
+    <p>Tem certeza que deseja excluir esse produto?</p>
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Excluir</button>
+</div>
